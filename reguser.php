@@ -8,10 +8,10 @@ $db = "login";
 $con = mysqli_connect($servername, $username, $password, $db);
 
 if (isset($_POST["submit"])) {
-    $user = htmlspecialchar($_POST["username"]);
-    $userpass = htmlspecialchar($_POST["userpass"]);
-    $displayname = htmlspecialchar($_POST ["displayname"]);
-    $useremail = htmlspecialchar($_POST ["useremail"]);
+    $user = htmlspecialchars($_POST["username"]);
+    $userpass = htmlspecialchars($_POST["userpass"]);
+    $displayname = htmlspecialchars($_POST ["displayname"]);
+    $useremail = htmlspecialchars($_POST ["useremail"]);
 
     $sql = "INSERT INTO users (username, userpass, displayname, useremail) VALUES ('$user', '$userpass', '$displayname', '$useremail')";
     
