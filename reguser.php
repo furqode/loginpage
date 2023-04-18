@@ -37,6 +37,8 @@ $errors = array();
 
     }
 
+    // If any of the fields are empty it will display the error and the data won't be stored in the database
+
     if (empty($errors)) {
 
         $user = htmlspecialchars($_POST["username"]);
@@ -60,7 +62,7 @@ $errors = array();
         foreach ($errors as $error) {
             echo "<br>- " . $error;
         }
-        
+
     }
 
     
