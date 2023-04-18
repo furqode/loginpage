@@ -8,18 +8,22 @@
 </head>
 <body>
     <form action="reguser.php" method="post">
+
+<!-- Not using the required in the username input field if you wish to check if the error handling is working or not -->
+
         <label for="username">Username:</label>
         <input type="text" name="username"><br>
 
         <label for="userpass">Password:</label>
-        <input type="password" name="userpass"><br>
+        <input type="password" name="userpass" required><br>
 
         <label for="displayname">Display name:</label>
-        <input type="text" name="displayname"><br>
+        <input type="text" name="displayname" required><br>
 
         <label for="useremail">Email:</label>
-        <input type="email" name="useremail"><br>
+        <input type="email" name="useremail" required><br>
 
+        <input type="hidden" value="">
         <input type="submit" value="Submit" name="submit">
     </form>
 </body>
