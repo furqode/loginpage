@@ -51,6 +51,13 @@ $errors = array();
         } else {
             echo "Some error occured!";
         }
+
+    } else {
+        // Display error to the user.
+        echo "Form errors:";
+        foreach ($errors as $error) {
+            echo "<br>- " . $error;
+        }
     }
 
     
