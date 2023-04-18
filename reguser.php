@@ -7,6 +7,11 @@ $db = "login";
 
 $con = mysqli_connect($servername, $username, $password, $db);
 
+$userErr = "";
+$passErr = "";
+$nameErr = "";
+$emailErr = "";
+
 if (isset($_POST["submit"])) {
     $user = htmlspecialchars($_POST["username"]);
     $userpass = htmlspecialchars($_POST["userpass"]);
