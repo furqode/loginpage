@@ -43,10 +43,15 @@ $errors = array();
 
         $user = htmlspecialchars($_POST["username"]);
         $userpass = htmlspecialchars($_POST["userpass"]);
+
+        //hashing the user password 
+
+        $hashedpass = password_hash($userpass, PASSWORD_DEFAULT);
+
         $displayname = htmlspecialchars($_POST ["displayname"]);
         $useremail = htmlspecialchars($_POST ["useremail"]);
 
-        $sql = "INSERT INTO users (username, userpass, displayname, useremail) VALUES ('$user', '$userpass', '$displayname', '$useremail')";
+        $sql = "INSERT INTO users (username, userpass, displayname, useremail) VALUES ('$user', '$hashedpass', '$displayname', '$useremail')";
     
         if (mysqli_query($con, $sql)) {
             echo "Data stored successfully!";
