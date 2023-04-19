@@ -19,20 +19,41 @@ if (isset($_POST['submit'])) {
     // fetching the user passwords and store them in an array
     
     $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($result);
+    
 
     
 
-    //decrypt the password and verify the user
+   
 
     
     if (mysqli_num_rows($result) == 0) {
-        echo "Invalid user or password!";
+        // invalid user
+        echo "Invalid user. ";
+        echo " <a href='reguser.html'>Register yourself here!</a>";
+
     } else {
 
+        $row = mysqli_fetch_assoc($result);
         $hashedpass = $row['userpass'];
-        password_verify($userpass, $hashedpass);
-        echo "<h1>Welcome $user</h1>";
+
+        //decrypt the password and verify the user
+        if(password_verify($userpass, $hashedpass)) {
+            
+            //welcome user
+            
+            echo "<h1>Welcome $user</h1>";
+        
+        } else {
+
+            //invalid password.
+
+            echo "invalid password.";
+            echo " <a href='index.html'>Try again!</a>";
+
+        }
+        
+        
+        
     }
 
 }
