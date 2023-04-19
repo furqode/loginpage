@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 
         $hashedpass = $row['userpass'];
         password_verify($userpass, $hashedpass);
-        echo "Welcome $user";
+        echo "<h1>Welcome $user</h1>";
     }
 
 }
