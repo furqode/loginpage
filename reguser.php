@@ -54,7 +54,8 @@ $errors = array();
         $sql = "INSERT INTO users (username, userpass, displayname, useremail) VALUES ('$user', '$hashedpass', '$displayname', '$useremail')";
     
         if (mysqli_query($con, $sql)) {
-            echo "Data stored successfully!";
+            echo "Registered successfully.";
+            echo " <a href='index.html'>Login!</a>";
         } else {
             echo "Some error occured!";
         }
