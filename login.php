@@ -21,14 +21,18 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
 
-    $hashedpass = $row['userpass'];
+    
 
     //decrypt the password and verify the user
 
-    if (password_verify($userpass, $hashedpass)) {
-        echo "welcome '$user'";
+    
+    if (mysqli_num_rows($result) == 0) {
+        echo "Invalid user or password!";
     } else {
-        echo "error";
+
+        $hashedpass = $row['userpass'];
+        password_verify($userpass, $hashedpass);
+        echo "Welcome $user";
     }
 
 }
