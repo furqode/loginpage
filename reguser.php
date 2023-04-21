@@ -63,6 +63,7 @@ $errors = array();
     } else {
 
         // Display error to the user.
+        
         echo "Form errors:";
 
         foreach ($errors as $error) {
